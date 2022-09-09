@@ -8,6 +8,7 @@ GEM
       rb-inotify (~> 0.9, >= 0.9.10)
     method_source (1.0.0)
     nio4r (2.5.8)
+    pg (1.4.3)
     pry (0.14.1)
       coderay (~> 1.1)
       method_source (~> 1.0)
@@ -23,6 +24,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  pg
   pry
   puma
   rerun
