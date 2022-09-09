@@ -23,6 +23,12 @@ class App
       status = 200
       headers = { 'Content-Type' => 'application/json' }
       body = [conn.exec('select * from items').values.to_json]
+    elsif ['/items', '/items/'].include?(path) && method == 'POST'
+      status = 200
+      params = Rack::Utils.parse_nested_query(env['QUERY_STRING'])
+      name = params['name']
+      description = params['description']
+      conn.exec("INSERT INTO items (name, description) VALUES ('#{name}', '#{description}');")
     else
       status = 404
       headers = { 'Content-Type' => 'text/plain' }
